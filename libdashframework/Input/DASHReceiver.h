@@ -49,6 +49,7 @@ namespace libdash
                                                                          dash::mpd::IRepresentation *representation);
 
                 private:
+                    FILE *bufferMonitorFile;
                     uint32_t        CalculateSegmentOffset  ();
                     void            NotifySegmentDownloaded ();
                     void            DownloadInitSegment     (dash::mpd::IRepresentation* rep);

@@ -51,6 +51,7 @@ bool                        DASHReceiver::Start                     ()
 {
     if(this->isBuffering)
         return false;
+    bufferMonitorFile = fopen("/home/xbag/libdash/libdash/qtsampleplayer/buffer.txt", "w");
 
     this->isBuffering       = true;
     this->bufferingThread   = CreateThreadPortable (DoBuffering, this);
@@ -68,6 +69,7 @@ void                        DASHReceiver::Stop                      ()
     if(!this->isBuffering)
         return;
 
+    fclose(bufferMonitorFile);
     this->isBuffering = false;
     this->buffer->SetEOS(true);
 
@@ -91,9 +93,9 @@ MediaObject*                DASHReceiver::GetNextSegment            ()
         MediaObject *media = new MediaObject(seg, this->representation);
         this->segmentNumber++;
         // xBag
-        FILE *f = fopen("/home/xbag/libdash/libdash/qtsampleplayer/buffer.txt", "a");
-        fprintf(f, "%d\t%d\n", (int) this->segmentNumber, (int) (this->buffer->Length()));
-        fclose(f);
+        
+        fprintf(bufferMonitorFile, "%d\t%d\n", (int) this->segmentNumber, (int) (this->buffer->Length()));
+        
         return media;
         // end xBag
     }
