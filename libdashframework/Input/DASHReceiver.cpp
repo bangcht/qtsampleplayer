@@ -90,7 +90,12 @@ MediaObject*                DASHReceiver::GetNextSegment            ()
     {
         MediaObject *media = new MediaObject(seg, this->representation);
         this->segmentNumber++;
+        // xBag
+        FILE *f = fopen("/home/xbag/libdash/libdash/qtsampleplayer/buffer.txt", "a");
+        fprintf(f, "%d\t%d\n", (int) this->segmentNumber, (int) (this->buffer->Length()));
+        fclose(f);
         return media;
+        // end xBag
     }
 
     return NULL;

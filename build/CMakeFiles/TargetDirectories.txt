@@ -1,0 +1,2 @@
+/home/xbag/libdash/libdash/qtsampleplayer/build/CMakeFiles/qtsampleplayer.dir
+/home/xbag/libdash/libdash/qtsampleplayer/build/CMakeFiles/qtsampleplayer_automoc.dir
