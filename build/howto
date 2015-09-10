@@ -1,4 +1,0 @@
-
-./cmake-2.8.11.2-Linux-i386/bin/cmake ../
-make
-./qtsampleplayer

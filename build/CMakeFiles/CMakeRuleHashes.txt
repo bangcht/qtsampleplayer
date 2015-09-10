@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-045aa89c7a89ca4485fd35f5216d9f3b CMakeFiles/qtsampleplayer_automoc
-dbb13dbaa8f0b137a4decad64f90b563 qrc_qtsampleplayer.cpp
-278f24258cb940488493c97f2cc44f3d ui_qtsampleplayer.h
